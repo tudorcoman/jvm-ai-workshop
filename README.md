@@ -129,6 +129,30 @@ server:
 ./gradlew test
 ```
 
+### REST API Endpoints
+
+The application exposes the following REST endpoints:
+
+**Java Controller:**
+- `GET /api/health` - Health check endpoint
+  ```json
+  {
+    "status": "UP",
+    "message": "JVM AI Workshop is running",
+    "language": "Java 21"
+  }
+  ```
+
+**Kotlin Controller:**
+- `GET /api/kotlin/welcome` - Welcome endpoint
+  ```json
+  {
+    "message": "Welcome to JVM AI Workshop",
+    "language": "Kotlin",
+    "description": "Migrating Python AI Prototypes to Cross-Platform Solutions"
+  }
+  ```
+
 ### Cleaning Build
 
 ```bash
