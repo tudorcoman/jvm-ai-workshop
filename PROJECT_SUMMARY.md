@@ -7,8 +7,8 @@ This repository has been set up as a complete Java 21 & Kotlin project demonstra
 ## ✅ Completed Components
 
 ### 1. Gradle Build System
-- **build.gradle.kts**: Complete build configuration with all required dependencies
-- **settings.gradle.kts**: Project settings
+- **build.gradle**: Complete build configuration with all required dependencies
+- **settings.gradle**: Project settings
 - **Gradle Wrapper**: Includes gradlew scripts for cross-platform builds
 
 ### 2. Dependencies Included
@@ -75,7 +75,7 @@ python export_model_to_onnx.py
 
 | File | Purpose |
 |------|---------|
-| `build.gradle.kts` | Gradle build with all dependencies |
+| `build.gradle` | Gradle build with all dependencies |
 | `src/main/resources/application.yml` | Spring Boot configuration |
 | `local-setup/docker-compose.yml` | PostgreSQL + pgvector setup |
 | `export_model_to_onnx.py` | ML model export to ONNX |
