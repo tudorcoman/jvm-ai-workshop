@@ -45,7 +45,7 @@ jvm-ai-workshop/
 ├── export_model_to_onnx.py                        # Python script to export models
 ├── requirements.txt                               # Python dependencies
 ├── quickstart.sh                                  # Quick setup script
-├── build.gradle.kts                               # Gradle build configuration
+├── build.gradle                                   # Gradle build configuration (Groovy)
 └── gradlew / gradlew.bat                          # Gradle wrapper scripts
 ```
 
@@ -110,9 +110,19 @@ This will start a PostgreSQL 16 database with:
 
 ### 2. Export Sentence Transformer Model to ONNX
 
-Install Python dependencies:
+Create a virtual environment and install Python dependencies:
 
 ```bash
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+# On Linux/Mac:
+source venv/bin/activate
+# On Windows:
+# venv\Scripts\activate
+
+# Install dependencies
 pip install -r requirements.txt
 ```
 
