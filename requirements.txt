@@ -1,0 +1,7 @@
+# Python dependencies for ONNX model export
+sentence-transformers
+optimum[onnxruntime]
+onnx
+onnxruntime
+transformers
+torch
