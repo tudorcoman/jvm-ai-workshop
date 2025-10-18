@@ -17,50 +17,11 @@ This project demonstrates how to migrate Python AI prototypes to cross-platform 
 - Python 3.8+ (for model export)
 - Gradle 8.5+ (included via wrapper)
 
-## Project Structure
-
-```
-jvm-ai-workshop/
-├── src/
-│   └── main/
-│       ├── java/com/workshop/ai/          
-│       │   └── controller/
-│       │       └── HealthController.java          # Java REST controller example
-│       ├── kotlin/com/workshop/ai/        
-│       │   ├── JvmAiWorkshopApplication.kt        # Spring Boot main application
-│       │   ├── controller/
-│       │   │   └── WelcomeController.kt           # Kotlin REST controller example
-│       │   ├── model/
-│       │   │   └── Document.kt                    # JPA entity for PostgreSQL
-│       │   ├── repository/
-│       │   │   └── DocumentRepository.kt          # Spring Data JPA repository
-│       │   └── service/
-│       │       ├── EmbeddingService.kt            # LangChain4j embeddings
-│       │       └── VectorOperationsService.kt     # Multik array operations
-│       └── resources/
-│           └── application.yml                    # Spring Boot configuration
-├── local-setup/
-│   ├── docker-compose.yml                         # PostgreSQL with pgvector
-│   └── init.sql                                   # Database initialization
-├── export_model_to_onnx.py                        # Python script to export models
-├── requirements.txt                               # Python dependencies
-├── quickstart.sh                                  # Quick setup script
-├── build.gradle                                   # Gradle build configuration (Groovy)
-└── gradlew / gradlew.bat                          # Gradle wrapper scripts
-```
-
 ## Key Components
 
-### Java Components
-- **HealthController**: REST API endpoint demonstrating Java 21 features
+### Services
 
-### Kotlin Components
-- **JvmAiWorkshopApplication**: Main Spring Boot application
-- **WelcomeController**: REST API endpoint demonstrating Kotlin integration
-- **Document**: JPA entity with Hibernate annotations for PostgreSQL
-- **DocumentRepository**: Spring Data JPA repository interface
-- **EmbeddingService**: LangChain4j integration for text embeddings using MiniLM-L6-v2
-- **VectorOperationsService**: Multik library usage for array operations
+Most of the services of this application are in Java, with the exception of the one we will use to compute the recommendations.
 
 ### Database
 - PostgreSQL 16 with pgvector extension for vector similarity search
