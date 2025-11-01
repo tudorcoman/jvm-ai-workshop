@@ -20,8 +20,17 @@ class RecommendationsService(
     fun getPersonalizedRecommendations(userId: UUID): List<ProductDTO> {
         val events = eventService.getEventsByUserId(userId.toString())
 
-        // TODO: build the centroid using the events list
         var centroid = mk.ndarray(FloatArray(384) { 0f }) // Assuming 384-dimensional embeddings
+        var totalWeights = 0.0f
+        for (event in events) {
+            val product = mk.ndarray(productService.getProductEmbedding(event.productId))
+            val weight = 1.0f * EventType.valueOf(event.eventType).weight
+            centroid += (product * weight)
+            totalWeights += weight
+        }
+        if (totalWeights > 0) {
+            centroid = (1.0f / totalWeights) * centroid
+        }
         return productService.getRecommendedProducts(userId, centroid.toFloatArray())
     }
 

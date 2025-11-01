@@ -18,11 +18,8 @@ public class ProductService {
         this.embeddingService = embeddingService;
     }
 
-    // TODO: build the entity and save it here
     public ProductDTO saveProduct(ProductDTO product) {
-        final Product entity = null;
-
-        final Product savedProduct = productRepository.save(entity);
+        final Product savedProduct = productRepository.save(mapToEntity(product));
         return mapToDTO(savedProduct);
     }
 
@@ -63,6 +60,14 @@ public class ProductService {
             product.getId().toString(),
             product.getName(),
             product.getDescription()
+        );
+    }
+
+    private Product mapToEntity(ProductDTO productDTO) {
+        return new Product(
+            productDTO.name(),
+            productDTO.description(),
+            embeddingService.generateEmbedding(productDTO.name() + " " + productDTO.description())
         );
     }
 }

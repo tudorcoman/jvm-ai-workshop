@@ -10,7 +10,7 @@ spring:
   
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: validate # update (only for the first run)
 #    show-sql: true
     properties:
       hibernate:
